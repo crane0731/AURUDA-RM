@@ -15,6 +15,7 @@
 ## 📅 프로젝트 기간
 
 - 2024-10-11 ~ 2024-12-16
+- 2025-08-01 ~  (리팩토링 작업)
 
 ---
 
@@ -57,7 +58,14 @@
 
 ---
 
+## 📭 리팩토링 전 GITHUB 주소
 
+- https://github.com/crane0731/Auruda-Trip
+- https://github.com/crane0731/Auruda-Login
+- https://github.com/crane0731/Auruda-Article
+- https://github.com/crane0731/Auruda-Gate
+
+---
 
 ## 🖼️서비스 이미지
 
@@ -230,9 +238,10 @@
 
 ## 📄ERD
 
-https://www.erdcloud.com/d/rM9KngQpgueZokEeD
+[https://www.erdcloud.com/d/rM9KngQpgueZokEeD](https://www.erdcloud.com/d/hGoNcQpLZ2Gnnas9w)
 
-<img width="1049" height="608" alt="image 9" src="https://github.com/user-attachments/assets/9eab8ce0-d3c7-471f-a0a1-41a1d0309cd3" />
+<img width="2320" height="1412" alt="AI 여행 통합 플래너" src="https://github.com/user-attachments/assets/fcfc5b85-cc1f-4f9f-9fa7-d86d107708cc" />
+
 
 
 ---
@@ -292,6 +301,7 @@ https://www.erdcloud.com/d/rM9KngQpgueZokEeD
 
 <img width="1082" height="525" alt="image 10" src="https://github.com/user-attachments/assets/dee47cad-1f7c-4d4f-b875-a1421d19b713" />
 
+- 현재 구조를 새롭게 리팩토링 해서 비효율적인 MSA 구조를 버리고 하나의 스프링 부트 서버로 통합
 
 ---
 
