@@ -1,0 +1,73 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.3.3'
+	id 'io.spring.dependency-management' version '1.1.7'
+}
+
+group = 'aurudarm'
+version = '0.0.1-SNAPSHOT'
+
+java {
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(21)
+	}
+}
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.5'
+	compileOnly 'org.projectlombok:lombok'
+	runtimeOnly 'com.mysql:mysql-connector-j'
+	annotationProcessor 'org.projectlombok:lombok'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter-test:3.0.5'
+	testImplementation 'org.springframework.security:spring-security-test'
+	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
+
+	implementation 'com.github.gavlyukovskiy:p6spy-spring-boot-starter:1.10.0'
+
+	//swagger
+	implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.3.0'
+
+	//mail
+	implementation 'org.springframework.boot:spring-boot-starter-mail'
+
+
+	//jwt
+	implementation 'io.jsonwebtoken:jjwt:0.9.1'//자바 JWT 라이브러리
+	implementation 'javax.xml.bind:jaxb-api:2.3.1'//XML 문서와 Java 객체 간 매핑 자동화
+
+	//redis
+	implementation 'org.springframework.boot:spring-boot-starter-data-redis'
+
+
+	//Querydsl 추가
+	implementation 'com.querydsl:querydsl-jpa:5.0.0:jakarta'
+	annotationProcessor "com.querydsl:querydsl-apt:${dependencyManagement.importedProperties['querydsl.version']}:jakarta"
+	annotationProcessor "jakarta.annotation:jakarta.annotation-api"
+	annotationProcessor "jakarta.persistence:jakarta.persistence-api"
+
+	// Jsoup - HTML 파싱 라이브러리
+	implementation 'org.jsoup:jsoup:1.14.3'
+
+	// Selenium - 브라우저 자동화 라이브러리
+	implementation 'org.seleniumhq.selenium:selenium-java:4.0.0'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
