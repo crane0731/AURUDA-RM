@@ -290,9 +290,143 @@
 
 ---
 
-## 📝API 명세서
+## 📝기능(API) 명세서
 
-[API 명세서](https://www.notion.so/API-1dd13d3e3c1b8057ae17fcaf5453bb15?pvs=21) 
+## 관리자(ADMIN)
+
+- 회원 관리
+
+| 기능 | URL | 방식 | 설명 |
+| --- | --- | --- | --- |
+| 회원 삭제 | `/api/auruda/admin/members/{id}` | DELETE | 회원을 삭제한다. |
+| 회원 정보 상세 조회 | `/api/auruda/admin/members/{id}` | GET | 회원 정보를 상세 조회 한다. |
+| 회원 목록 조회 | `/api/auruda/admin/members` | GET | 회원 목록을 조회 한다. |
+
+## 로그인(LOGIN)
+
+- 일반 로그인(LOGIN)
+
+| 기능 | URL | 방식 | 설명 |
+| --- | --- | --- | --- |
+| 회원가입 | `/api/auruda/auth/signup` | POST | 회원 가입을 진행한다. |
+| 로그인 | `/api/auruda/auth/login` | POST | 로그인을 진행한다. |
+| 로그아웃 | `/api/auruda/auth/logout` | POST | 로그아웃을 진행한다. |
+- 카카오 소셜 로그인(LOGIN)
+
+| 기능 | URL | 방식 | 설명 |
+| --- | --- | --- | --- |
+| 카카오 소셜 로그인 콜백 | `api/auth/kakao/callback` | GET | 카카오 소셜 로그인 콜백 api |
+| 카카오 로그인 페이지 리다이렉트 | `api/auth/kakao` | GET | 카카오 로그인 페이지로 리다이렉트 한다. |
+
+## 토큰(TOKEN)
+
+| 기능 | URL | 방식 | 설명 |
+| --- | --- | --- | --- |
+| 새로운 엑세스 토큰 발급 | `/api/auruda/auth/token` | POST | 새로운 엑세스 토큰을 발급한다. |
+
+## 회원(MEMBER)
+
+| 기능 | URL | 방식 | 설명 |
+| --- | --- | --- | --- |
+| 자신의 정보 상세 조회 | `/api/auruda/members/me` | GET | 자신의 정보를 상세 조회한다. |
+| 회원 닉네임 수정 | `/api/auruda/members/me/nickname` | PUT | 닉네임 수정을 진행한다. |
+| 회원 비밀번호 수정 | `/api/auruda/members/me/password` | PUT | 비밀번호 수정을 진행한다. |
+| 회원 탈퇴 | `/api/auruda/members/me/withdraw` | DELETE | 회원 탈퇴를 진행한다. |
+
+## 이미지(IMAGE)
+
+| 기능 | URL | 방식 | 설명 |
+| --- | --- | --- | --- |
+| 회원 프로필 이미지 업로드 | `/api/auruda/image` | POST | 회원 프로필 이미지를 업로드한다. |
+| 회원 프로필 이미지 업로드 취소 | `/api/auruda/image` | DELETE | 회원 프로필 이미지 업로드를 취소한다. |
+| 게시글 이미지 업로드 | `/api/auruda/image` | POST | 게시글 이미지를 업로드한다. |
+| 게시글 이미지 업로드 취소 | `/api/auruda/image` | DELETE | 게시글 이미지 업로드를 취소한다. |
+
+## 크롤링(CRAWLING)
+
+| 기능 | URL | 방식 | 설명 |
+| --- | --- | --- | --- |
+| 지역 축제 정보를 크롤링 | `/api/auruda/latest-festival` | GET | 지역 축제 정보를 크롤링을 통해 가져온다. |
+| 지역 콘서트 정보를 크롤링 | `/api/auruda/latest-concerts` | GET | 지역 콘서트 정보를 크롤링을 통해 가져온다. |
+
+## 카카오맵(KAKAO_MAP)
+
+| 기능 | URL | 방식 | 설명 |
+| --- | --- | --- | --- |
+| 카카오 맵 가져오기 | `/api/auruda/kakao/places` | GET | 위도,경도 + 카테고리의 조합으로 카카오 지도에서 검색을 진행한다. |
+
+## 리뷰(REVIEW)
+
+| 기능 | URL | 방식 | 설명 |
+| --- | --- | --- | --- |
+| 리뷰 등록 | `/api/auruda/review/place/{id}`
+ | POST | 리뷰를 등록한다, |
+| 리뷰 삭제 | `/api/auruda/review/{id}` | DELETE | 리뷰를 삭제한다. |
+| 리뷰 수정 | `/api/auruda/review/{id}` | PUT | 리뷰를 수정한다. |
+| 특정 장소의 리뷰 목록 조회 | `/api/auruda/review/place/{id}` | GET | 특정 장소의 리뷰 목록을 조회한다. |
+
+## 장소(PLACE)
+
+| 기능 | URL | 방식 | 설명 |
+| --- | --- | --- | --- |
+| 장소 상세 조회 | `/api/auruda/place/{id}` | GET | 장소 정보를 상세 조회한다. |
+| 방문자 수가 높은 순대로 장소 목록 조회 | `/api/auruda/place` | GET | 방문자 수가 높은 순대로 장소 목록을 조회한다. |
+
+## AI 여행(AI ITINERARY)
+
+| 기능 | URL | 방식 | 설명 |
+| --- | --- | --- | --- |
+| 추천 여행지 조회 | `/api/auruda/itinerary/places` | POST | 공공 데이터 API를 통해 추천 여행지를 조회한다. |
+| 여행 코스 추천 (생성) | `/api/auruda/itinerary` | POST | AI를 통해 여행 코스를 생성하고 추천 받는다. |
+
+## 게시글(ARTICLE)
+
+| 기능 | URL | 방식 | 설명 |
+| --- | --- | --- | --- |
+| 게시글 등록 | `/api/auruda/article` | POST | 게시글을 등록한다. |
+| 게시글 삭제 | `/api/auruda/article/{id}` | DELETE | 게시글을 삭제한다. |
+| 게시글 수정 | `/api/auruda/article/{id}` | PUT | 게시글을 수정한다. |
+| 게시글 상세 조회 | `/api/auruda/article/{id}` | GET | 게시글을 상세 조회한다. |
+| 게시글 목록 조회 | `/api/auruda/article` | GET | 게시글 목록을 조회한다. |
+| 나의 게시글 조회 | `/api/auruda/article/me` | GET | 내가 작성한 게시글을 조회한다. |
+
+## 게시글 좋아요(LIKE_ARTICLE)
+
+| 기능 | URL | 방식 | 설명 |
+| --- | --- | --- | --- |
+| 게시글 좋아요 | `/api/auruda/article/{id}/like` | POST | 게시글에 좋아요를 추가한다. |
+| 내가 좋아요 누른 게시글 목록 조회 | `/api/auruda/article/like` | GET | 내가 좋아요 눌렀던 게시글들을 조회한다. |
+
+## 댓글(Comment)
+
+| 기능 | URL | 방식 | 설명 |
+| --- | --- | --- | --- |
+| 댓글 등록 | `/api/auruda/article/{id}` | POST | 댓글을 등록한다. |
+| 댓글 삭제 | `/api/auruda/article/comment/{id}` | DELETE | 댓글을 삭제한다. |
+| 특정 게시글의 댓글 목록 조회 | `/api/auruda/article/{id}/comment` | GET | 특정 게시글의 댓글 목록을 조회한다. |
+| 자신이 쓴 댓글 목록 조회 | `/api/auruda/article/comment/me` | GET | 자신이 쓴 댓글 목록을 조회한다. |
+
+## 배낭(BACKPACK)
+
+| 기능 | URL | 방식 | 설명 |
+| --- | --- | --- | --- |
+| 배낭 등록 | `/api/auruda/backpack` | POST | 배낭을 등록한다. |
+| 배낭 삭제 | `/api/auruda/backpack/{id}` | DELETE | 배낭을 삭제한다. |
+| 배낭 이름 수정 | `/api/auruda/backpack/{id}` | PUT | 배낭의 이름을 수정한다. |
+| 자신의 배낭 목록 조회 | `/api/auruda/backpack` | GET | 자신의 배낭 목록을 조회한다. |
+| 배낭에 장소 추가 | `/api/auruda/backpack/{id}/place/{id}` | POST | 배낭에 장소를 추가한다. |
+| 배낭에 장소 삭제 | `/api/auruda/backpack/{id}/place/{id}` | DELETE | 배낭에 장소를 삭제한다. |
+| 배낭 상세 조회 | `/api/auruda/backpack/{id}` | GET | 배낭 을 상세 조회한다. |
+
+## 여행 계획(TRIP_PLAN)
+
+| 기능 | URL | 방식 | 설명 |
+| --- | --- | --- | --- |
+| 여행 계획 등록 | `/api/auruda/trip-plan` | POST | 여행 계획을 등록한다. |
+| 여행 계획 삭제 | `/api/auruda/trip-plan/{id}` | DELETE | 여행 계획을 삭제한다. |
+| 여행 계획 수정 | `/api/auruda/trip-plan/{id}` | PUT | 여행 계획을 수정한다. |
+| 여행 계획 상세 조회 | `/api/auruda/trip-plan/{id}` | GET | 여행 계획을 상세 조회한다. |
+| 자신의 여행 계획 목록 조회 | `/api/auruda/trip-plan/me` | GET | 자신의 여행 계획 목록을 조회한다. |
 
 ---
 
