@@ -63,6 +63,9 @@ public class ReviewService {
 
         //리뷰 생성 + 저장
         save(Review.create(member,place, dto.getContent(), dto.getRating()));
+
+        member.plusPoint();
+
     }
 
     /**

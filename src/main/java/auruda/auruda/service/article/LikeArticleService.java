@@ -58,6 +58,12 @@ public class LikeArticleService {
         //게시글 좋아요 수 +1
         article.addLikeCount();
 
+        //게시글을 작성한 회원
+        Member writer = article.getMember();
+
+        //포인트 증가
+        writer.plusPoint();
+
     }
 
     /**

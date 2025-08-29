@@ -112,4 +112,28 @@ public class Member extends BaseTimeEntity {
         this.deleteStatus = DeleteStatus.DELETED;
     }
 
+    /**
+     * [비즈니스 로직]
+     * 100 포인트 추가
+     */
+    public void plusPoint(){
+        this.point+=100;
+
+        if(point>=0 && point<1000){
+            this.grade=MemberGrade.E;
+        }
+        else if(point>=1000 && point<2000){
+            this.grade=MemberGrade.D;
+        }
+        else if(point>=2000 && point<4000){
+            this.grade=MemberGrade.C;
+        }
+        else if(point>=4000 && point<10000){
+            this.grade=MemberGrade.B;
+        }
+        else if(point>=10000){
+            this.grade=MemberGrade.A;
+        }
+    }
+
 }
